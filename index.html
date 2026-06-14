@@ -1,1 +1,116 @@
-<ul id="subjectList"></ul>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HuuKhanh Learning</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+}
+
+.header{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+.menu-btn{
+    font-size:24px;
+    cursor:pointer;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:#1f2937;
+    color:white;
+    transition:0.3s;
+    overflow:auto;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.sidebar h2{
+    padding:20px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar li{
+    padding:15px 20px;
+    cursor:pointer;
+}
+
+.sidebar li:hover{
+    background:#374151;
+}
+
+.close-btn{
+    float:right;
+    cursor:pointer;
+    padding-right:15px;
+}
+
+#content{
+    padding:20px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <span class="menu-btn" onclick="openSidebar()">☰</span>
+    HuuKhanh Learning
+</div>
+
+<div class="sidebar" id="sidebar">
+
+    <h2>
+        Môn học
+        <span class="close-btn" onclick="closeSidebar()">✖</span>
+    </h2>
+
+    <ul id="subjectList"></ul>
+
+</div>
+
+<div id="content">
+
+    <h2>Chào mừng</h2>
+
+    <p>
+        Hãy chọn môn học trong Sidebar.
+    </p>
+
+</div>
+
+<script src="sidebar.js"></script>
+
+<script>
+
+function openSidebar(){
+    document.getElementById("sidebar").classList.add("active");
+}
+
+function closeSidebar(){
+    document.getElementById("sidebar").classList.remove("active");
+}
+
+renderSubjects();
+
+</script>
+
+</body>
+</html>
