@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khánh Nguyễn</title>
+
+<title>Nguyễn Hữu Khánh</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -19,111 +21,142 @@ body{
 }
 
 header{
-    height:100vh;
+    background:#1e293b;
+    padding:15px 20px;
     display:flex;
-    justify-content:center;
     align-items:center;
-    text-align:center;
-    flex-direction:column;
 }
 
-h1{
-    font-size:60px;
-    margin-bottom:15px;
+.menu-btn{
+    font-size:30px;
+    cursor:pointer;
+    margin-right:15px;
 }
 
-p{
-    font-size:20px;
-    color:#cbd5e1;
-}
-
-.btn{
-    margin-top:30px;
-    padding:15px 35px;
-    background:#3b82f6;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
+.sidebar{
+    position:fixed;
+    left:-300px;
+    top:0;
+    width:300px;
+    height:100%;
+    background:#020617;
     transition:0.3s;
+    overflow-y:auto;
+    z-index:1000;
 }
 
-.btn:hover{
-    background:#2563eb;
+.sidebar.active{
+    left:0;
 }
 
-section{
-    padding:80px 10%;
+.sidebar-header{
+    padding:20px;
+    text-align:center;
+    border-bottom:1px solid #334155;
 }
 
-.card-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.close-btn{
+    float:right;
+    cursor:pointer;
+    font-size:28px;
+}
+
+#subjectList{
+    list-style:none;
+}
+
+#subjectList li{
+    padding:15px 20px;
+    border-bottom:1px solid #1e293b;
+}
+
+#subjectList li:hover{
+    background:#1e293b;
+}
+
+.main{
+    padding:50px 20px;
 }
 
 .card{
+    max-width:900px;
+    margin:auto;
     background:#1e293b;
-    padding:25px;
-    border-radius:15px;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.card h1{
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:1.8;
+    color:#cbd5e1;
 }
 
 footer{
     text-align:center;
-    padding:30px;
-    background:#020617;
+    padding:20px;
+    margin-top:40px;
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Xin chào, tôi là Khánh Nguyễn</h1>
-    <p>Sinh viên đại học - Yêu thích công nghệ và an ninh mạng</p>
-    <a href="#about" class="btn">Khám phá</a>
+    <span class="menu-btn" onclick="openSidebar()">☰</span>
+    <h2>HuuKhanhCAN</h2>
 </header>
 
-<section id="about">
-    <h2>Giới thiệu</h2>
-    <br>
-    <p>
-        Tôi là Khánh Nguyễn. Tôi quan tâm đến công nghệ,
-        lập trình, an ninh mạng và nghiên cứu pháp luật.
-    </p>
-</section>
+<div class="sidebar" id="sidebar">
 
-<section>
-    <h2>Kỹ năng</h2>
-    <br>
-
-    <div class="card-container">
-        <div class="card">
-            <h3>HTML/CSS</h3>
-            <p>Xây dựng giao diện website.</p>
-        </div>
-
-        <div class="card">
-            <h3>JavaScript</h3>
-            <p>Tạo hiệu ứng và chức năng.</p>
-        </div>
-
-        <div class="card">
-            <h3>An ninh mạng</h3>
-            <p>Nghiên cứu bảo mật hệ thống.</p>
-        </div>
+    <div class="sidebar-header">
+        <span class="close-btn" onclick="closeSidebar()">×</span>
+        <h2>Môn học</h2>
     </div>
-</section>
 
-<section>
-    <h2>Liên hệ</h2>
-    <br>
-    <p>Email: yourmail@gmail.com</p>
-    <p>Facebook: facebook.com/youraccount</p>
-</section>
+    <ul id="subjectList"></ul>
+
+</div>
+
+<div class="main">
+
+    <div class="card">
+
+        <h1>Xin chào, tôi là Hữu Khánh</h1>
+
+        <p>
+            Đây là website cá nhân của tôi.
+            Tại đây tôi lưu trữ thông tin học tập.
+        </p>
+
+    </div>
+
+</div>
 
 <footer>
-    © 2026 Khánh Nguyễn. All Rights Reserved.
+     Nguyễn Hữu Khánh
 </footer>
+
+<script src="sidebar.js"></script>
+
+<script>
+
+function openSidebar(){
+    document.getElementById("sidebar").classList.add("active");
+}
+
+function closeSidebar(){
+    document.getElementById("sidebar").classList.remove("active");
+}
+
+renderSubjects();
+
+</script>
 
 </body>
 </html>
