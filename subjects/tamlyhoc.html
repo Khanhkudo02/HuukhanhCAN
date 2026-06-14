@@ -1,118 +1,187 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mindmap Tâm Lý Học - Chi tiết</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#080f1d;color:#e2e8f0;min-height:100vh}
-.hdr{text-align:center;padding:26px 16px 8px}
-.hdr h1{font-size:clamp(1.2rem,3vw,1.9rem);font-weight:800;color:#f1f5f9;letter-spacing:.04em}
-.hdr p{color:#475569;font-size:.8rem;margin-top:5px}
-.stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px 20px 16px}
-.stat{background:#111827;border:1px solid #1f2d3d;border-radius:8px;padding:5px 12px;font-size:.72rem;color:#64748b}
-.stat b{color:#94a3b8;margin-right:4px}
-.tabs{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:0 16px 18px}
-.tab{padding:5px 12px;border-radius:20px;border:1.5px solid #1f2d3d;cursor:pointer;font-size:.73rem;font-weight:600;background:#111827;color:#475569;transition:all .18s}
-.tab:hover{color:#cbd5e1;border-color:#334155}
-.tab.on{color:#fff !important;border-color:var(--c) !important;background:var(--c) !important}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:13px;padding:0 16px 50px;max-width:1500px;margin:0 auto}
-.card{background:#0e1624;border-radius:14px;border:1.5px solid #1a2535;overflow:hidden;transition:transform .18s,box-shadow .18s}
-.card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.6)}
-.card.on {border-color:var(--ac)}
-.hd{display:flex;align-items:center;gap:8px;padding:11px 13px;cursor:pointer;background:var(--ac-dim);user-select:none}
-.num{width:24px;height:24px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:800;color:#fff;flex-shrink:0}
-.ttl{font-size:.77rem;font-weight:700;color:#f1f5f9;flex:1;line-height:1.3}
-.tg{font-size:.6rem;padding:2px 6px;border-radius:6px;background:var(--ac);color:#fff;white-space:nowrap;flex-shrink:0;opacity:.85}
-.arr{font-size:.65rem;color:var(--ac);flex-shrink:0;transition:transform .22s}
-.card.on .arr{transform:rotate(180deg)}
-.bd{padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s}
-.card.on .bd{max-height:900px;overflow-y:auto;padding:12px 13px}
-.bd::-webkit-scrollbar{width:3px}
-.bd::-webkit-scrollbar-thumb{background:#1f2d3d;border-radius:2px}
-.br{margin-bottom:10px}
-.br:last-child{margin-bottom:0}
-.bt{font-size:.65rem;font-weight:800;color:var(--ac);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;display:flex;align-items:center;gap:4px}
-.bt::before{content:'';display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--ac);flex-shrink:0}
-.br ul{list-style:none;padding-left:6px;border-left:2px solid var(--ac-dim2)}
-.br ul li{font-size:.71rem;color:#7d9ab5;padding:2.5px 0 2.5px 8px;line-height:1.45;position:relative}
-.br ul li::before{content:'›';position:absolute;left:-1px;color:var(--ac);font-size:.75rem;top:2px}
-.br ul li b{color:#c4d4e3;font-weight:600}
-.br ul li em{color:#60a5fa;font-style:normal}
-.br ul li s{color:#f87171;text-decoration:none;font-style:italic;font-size:.68rem}
-.br ul li u{text-decoration:none;color:#fbbf24}
-.sub{list-style:none !important;padding-left:12px !important;border-left:1px dashed var(--ac-dim2) !important;margin-top:2px}
-.sub li::before{content:'·' !important;left:0 !important;font-size:.8rem !important}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:5px}
-.cc h4{font-size:.64rem;font-weight:800;color:var(--ac);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;padding-bottom:3px;border-bottom:1px solid var(--ac-dim2)}
-.cc ul{list-style:none;padding:0}
-.cc ul li{font-size:.69rem;color:#7d9ab5;padding:2px 0 2px 8px;line-height:1.4;position:relative}
-.cc ul li::before{content:'•';position:absolute;left:0;color:var(--ac);font-size:.55rem;top:4px}
-.steps{padding-left:0}
-.st{display:flex;gap:7px;margin-bottom:5px}
-.sn{min-width:17px;height:17px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:800;color:#fff;flex-shrink:0;margin-top:2px}
-.sv{font-size:.7rem;color:#7d9ab5;line-height:1.4}
-.sv b{color:#c4d4e3}
-.hidden{display:none!important}
-</style>
-</head>
-<body>
-
-<!-- NÚT QUAY LẠI TRANG CHỦ GIÚP WEB KHÔNG BỊ KẸT -->
-<div style="padding: 15px 16px 0;">
-  <a href="../index.html" style="color: #60a5fa; text-decoration: none; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 5px;">
-    ← Quay lại Trang chủ
-  </a>
-</div>
-
-<div class="hdr">
-  <h1>🧠 TÂM LÝ HỌC — MINDMAP</h1>
-  <p>Chi tiết nội dung câu hỏi · Click thẻ để mở rộng</p>
-</div>
-
-<div class="tabs">
-  <div class="tab on" data-f="all" style="--c:#334155">Tất cả</div>
-  <div class="tab" data-f="xa-hoi" style="--c:#6366f1">🏘️ Tâm lý XH</div>
-  <div class="tab" data-f="ban-chat" style="--c:#0ea5e9">🔬 Bản chất TL</div>
-  <div class="tab" data-f="nhan-thuc" style="--c:#10b981">💡 Nhận thức</div>
-  <div class="tab" data-f="tinh-cam" style="--c:#f59e0b">❤️ Tình cảm & Ý chí</div>
-  <div class="tab" data-f="nhan-cach" style="--c:#ec4899">🌟 Nhân cách</div>
-</div>
-
-<div class="grid" id="grid"></div>
-
-<!-- Nhúng file chứa dữ liệu 26 câu hỏi riêng biệt để không làm nặng file HTML -->
-<script src="./data-tamly.js"></script>
-
-<script>
-// Đợi dữ liệu tải xong rồi render
-window.onload = function() {
-  if (typeof C !== 'undefined') {
-    const grid = document.getElementById('grid');
-    C.forEach(d => {
-      const el = document.createElement('div');
-      el.className = 'card'; el.dataset.cat = d.cat;
-      el.style.cssText = `--ac:${d.ac};--ac-dim:${d.ac}15;--ac-dim2:${d.ac}40`;
-      el.innerHTML = `<div class="hd"><div class="num">${d.n}</div><div class="ttl">${d.title}</div><div class="tg">${d.tag}</div><div class="arr">▼</div></div><div class="bd">${d.html}</div>`;
-      el.querySelector('.hd').onclick = () => el.classList.toggle('on');
-      grid.appendChild(el);
-    });
-
-    document.querySelectorAll('.tab').forEach(t => {
-      t.onclick = function() {
-        document.querySelectorAll('.tab').forEach(x => { x.classList.remove('on'); x.style.cssText = '' });
-        this.classList.add('on');
-        const f = this.dataset.f;
-        document.querySelectorAll('.card').forEach(c => {
-          c.classList[f === 'all' || c.dataset.cat === f ? 'remove' : 'add']('hidden');
-        });
-      };
-    });
-  } else {
-    document.getElementById('grid').innerHTML = '<p style="text-align:center; color:#f87171; padding:20px;">Lỗi: Không tìm thấy file dữ liệu câu hỏi!</p>';
+  /* Định dạng chung cho vùng chứa Mindmap */
+  .mindmap-container {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #f3f4f6;
   }
-};
-</script>
-</body>
-</html>
+  
+  .mm-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .mm-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .mm-subtitle {
+    color: #9ca3af;
+    font-size: 0.85rem;
+  }
+
+  /* Hệ thống nút bấm bộ lọc (Tabs) */
+  .tabs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .tab {
+    background: #1f2937;
+    color: #9ca3af;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: 1px solid #374151;
+    transition: all 0.2s ease;
+  }
+
+  .tab:hover {
+    background: #374151;
+    color: #fff;
+  }
+
+  .tab.on {
+    background: #2563eb;
+    color: #fff;
+    border-color: #3b82f6;
+    font-weight: bold;
+  }
+
+  /* Cấu trúc danh sách các thẻ bài học (Grid & Cards) */
+  #grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+
+  /* Thanh tiêu đề của từng câu hỏi */
+  .card .hd {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    cursor: pointer;
+    gap: 12px;
+    user-select: none;
+    background: var(--ac-dim, #1f2937);
+  }
+
+  .card .hd:hover {
+    background: var(--ac-dim2, #374151);
+  }
+
+  .card .num {
+    background: var(--ac, #2563eb);
+    color: #fff;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .card .ttl {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .card .tg {
+    background: #1f2937;
+    color: #9ca3af;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    border: 1px solid #374151;
+  }
+
+  .card .arr {
+    color: #6b7280;
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+  }
+
+  /* Phần nội dung chi tiết ẩn/hiển thị bên trong */
+  .card .bd {
+    display: none;
+    padding: 16px;
+    border-top: 1px solid #1f2937;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    background: #0b0f19;
+  }
+
+  /* Trạng thái khi kích hoạt mở thẻ bài học */
+  .card.on .bd {
+    display: block;
+  }
+
+  .card.on .arr {
+    transform: rotate(180deg);
+  }
+
+  /* Trạng thái ẩn thẻ khi bị bộ lọc loại bỏ */
+  .card.hidden {
+    display: none !important;
+  }
+
+  /* Định dạng nội dung học tập chi tiết phía trong bài học */
+  .card .bd ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .card .bd li {
+    margin-bottom: 8px;
+    color: #d1d5db;
+  }
+
+  .card .bd strong {
+    color: #fff;
+  }
+</style>
+
+<div class="mindmap-container">
+  <div class="mm-header">
+    <div class="mm-title">🧠 TÂM LÝ HỌC — MINDMAP ĐẦY ĐỦ</div>
+    <div class="mm-subtitle">26 câu · Chi tiết toàn bộ nội dung · Click thẻ để mở rộng</div>
+  </div>
+
+  <div class="tabs-wrapper">
+    <div class="tab on" data-f="all">Tất cả (26)</div>
+    <div class="tab" data-f="tlxh">👨‍👩‍👧‍👦 Tâm lý XH</div>
+    <div class="tab" data-f="bctl">🔬 Bản chất TL</div>
+    <div class="tab" data-f="nt">💡 Nhận thức</div>
+    <div class="tab" data-f="tcyc">❤️ Tình cảm & Ý chí</div>
+    <div class="tab" data-f="nc">🌟 Nhân cách</div>
+  </div>
+
+  <div id="grid">
+    <div style="text-align: center; padding: 40px; color: #6b7280;">
+      🔄 Đang nạp danh sách sơ đồ tư duy...
+    </div>
+  </div>
+</div>
