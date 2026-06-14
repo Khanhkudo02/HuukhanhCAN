@@ -1,116 +1,47 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HuuKhanh Learning</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-}
-
-.header{
-    background:#2563eb;
-    color:white;
-    padding:15px;
-}
-
-.menu-btn{
-    font-size:24px;
-    cursor:pointer;
-}
-
-.sidebar{
-    position:fixed;
-    top:0;
-    left:-250px;
-    width:250px;
-    height:100%;
-    background:#1f2937;
-    color:white;
-    transition:0.3s;
-    overflow:auto;
-}
-
-.sidebar.active{
-    left:0;
-}
-
-.sidebar h2{
-    padding:20px;
-}
-
-.sidebar ul{
-    list-style:none;
-    padding:0;
-}
-
-.sidebar li{
-    padding:15px 20px;
-    cursor:pointer;
-}
-
-.sidebar li:hover{
-    background:#374151;
-}
-
-.close-btn{
-    float:right;
-    cursor:pointer;
-    padding-right:15px;
-}
-
-#content{
-    padding:20px;
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Học Tập Đa Môn | Tâm Lý · Tin Học · Tiếng Anh</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="dashboard">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>📚 Học Viện</h2>
+      <p>Chọn môn học bên dưới</p>
+    </div>
+    <nav class="nav-menu">
+      <a href="pages/psychology.html" class="nav-item" data-subject="psychology">
+        <span class="nav-icon">🧠</span>
+        <span class="nav-text">Tâm lý học</span>
+      </a>
+      <a href="pages/informatics.html" class="nav-item" data-subject="informatics">
+        <span class="nav-icon">💻</span>
+        <span class="nav-text">Tin học</span>
+      </a>
+      <a href="pages/english.html" class="nav-item" data-subject="english">
+        <span class="nav-icon">🇬🇧</span>
+        <span class="nav-text">Tiếng Anh</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <i>Học tập chủ động<br>Phát triển tư duy</i>
+    </div>
+  </aside>
 
-<div class="header">
-    <span class="menu-btn" onclick="openSidebar()">☰</span>
-    HuuKhanh Learning
+  <!-- MAIN CONTENT (iframe hoặc load động) -->
+  <main class="main-content" id="mainContent">
+    <div class="loading-placeholder">
+      <div class="loader"></div>
+      <p>Đang tải nội dung...</p>
+    </div>
+  </main>
 </div>
 
-<div class="sidebar" id="sidebar">
-
-    <h2>
-        Môn học
-        <span class="close-btn" onclick="closeSidebar()">✖</span>
-    </h2>
-
-    <ul id="subjectList"></ul>
-
-</div>
-
-<div id="content">
-
-    <h2>Chào mừng</h2>
-
-    <p>
-        Hãy chọn môn học trong Sidebar.
-    </p>
-
-</div>
-
-<script src="sidebar.js"></script>
-
-<script>
-
-function openSidebar(){
-    document.getElementById("sidebar").classList.add("active");
-}
-
-function closeSidebar(){
-    document.getElementById("sidebar").classList.remove("active");
-}
-
-renderSubjects();
-
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
